@@ -1,13 +1,17 @@
-# git-modules
-.vscode
-
-# build and setup files maintained on separate branch
-makefile
-requirements.txt
-setup.py
+# ignore git-module files
+.gitmodules
+.devcontainer/
+.vscode/
 
 # README.md
 README.md
+
+# implementation files
+*_impl.py
+
+# packaging and sphinx documentation files
+dist/
+*.rst
 
 # tmp files and directories
 *tmp/
@@ -36,9 +40,13 @@ target/
 venv/
 ENV/
 
-# byte-compiled / optimized / DLL files
+# byte-compiled, optimized, DLL, sphinx files
 __pycache__/
+.cache
 .pytest_cache/
+*.egg-info/
+*doctrees/
+*html/
 *.py[cod]
 *$py.class
 *.so
