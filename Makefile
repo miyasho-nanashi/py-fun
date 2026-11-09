@@ -1,4 +1,7 @@
-# Makefile for creating Sphinx documentation from modules in '../src'.
+# Makefile to build a basic Python project following the article by
+# Ken Reitz: "Structuring Your Project",
+# @see https://docs.python-guide.org/writing/structure
+# 
 # Usage:
 # - make install        ; install/update packages from 'requirements.txt'
 # - make run            ; run 'main.py' (default goal)
@@ -9,14 +12,12 @@
 # - make clean-f        ; execute clean-up
 # - make help           ; show help message (default)
 # 
-# Alternative doc tool: pdoc src docs/ running http-server
-# 
 DIST = dist             # directory where distribution is packaged
 DOCS = docs             # docs directory
 DOCS_BUILD ?= $(DOCS)   # docs build-directory, either $(DOCS) or $(DIST)
 ARTIFACT = $(DIST)/py_fun-1.0.0.tar.gz  # name/version in setup.py
 REQUIREMENTS="requirements.txt"         # installation requirements
-MAKEFLAGS += --no-print-directory       # disable messages when entering sub-dir
+MAKEFLAGS += --no-print-directory       # disable msg when make enters sub-dir
 
 # first goal hit when 'make' is called with no goal provided as argument
 help:
@@ -29,7 +30,7 @@ run:
 
 # run tests using 'pytest', alternatively: python -m unittest -v tests
 tests:
-	pytest
+	pytest -v
 
 # package source distribution in 'dist' using 'setup.py'
 # - python setup.py sdist --dist-dir dist (deprecated)
